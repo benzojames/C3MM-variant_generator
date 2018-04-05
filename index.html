@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Sample Project</title>
+    <!-- data-main attribute tells require.js to load
+          scripts/main.js after require.js loads. -->
+    <!-- <script data-main="scripts/index" src="node_modules/requirejs/require.js"></script> -->
+    <script src="./node_modules/systemjs/dist/system.js"></script>
+  </head>
+  <body>
+    <h1>My Sample Project</h1>
+    <script>
+      SystemJS.config({
+        paths: {
+          'npm:': 'node_modules/',
+        },
+        map: {
+          'lodash': 'npm:lodash/lodash.js',
+        },
+        baseUrl: '/',
+        packages: {
+          '/': {
+            defaultExtension: 'js'
+          },
+        }
+      });
+      SystemJS.import('./scripts/index')
+    </script>
+  </body>
+</html>

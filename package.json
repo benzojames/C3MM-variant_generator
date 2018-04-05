@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/benzojames/C3MM-variant_generator/issues"
   },
-  "homepage": "https://github.com/benzojames/C3MM-variant_generator#readme"
+  "homepage": "https://github.com/benzojames/C3MM-variant_generator#readme",
+  "dependencies": {
+    "lodash": "^4.17.5",
+    "systemjs": "^0.21.2"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.106",
+    "typescript": "^2.8.1"
+  }
 }
