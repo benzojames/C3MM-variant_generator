@@ -17,11 +17,15 @@
   },
   "homepage": "https://github.com/benzojames/C3MM-variant_generator#readme",
   "dependencies": {
+    "@types/requirejs": "^2.1.31",
+    "@types/systemjs": "^0.20.6",
     "lodash": "^4.17.5",
+    "requirejs": "^2.3.5",
     "systemjs": "^0.21.2"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.106",
+    "@types/node": "^9.6.2",
     "typescript": "^2.8.1"
   }
 }

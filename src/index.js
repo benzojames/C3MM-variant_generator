@@ -1,15 +1,27 @@
 "use strict";
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
-    return result;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const _ = __importStar(require("lodash"));
-const helpers_1 = require("./helpers");
-const ADD = __importStar(require("./addition"));
-console.log("Arrays should eb equal: ", _.isEqual([1, 2, 3], [1, 2, 3]));
+exports.__esModule = true;
+var _ = require("lodash");
+var helpers_1 = require("./helpers");
+var ADD = require("./addition");
+// import * as SUB from "./subtraction";
+// import * as SUB from "./subtraction";
+console.log("Arrays should be equal: ", _.isEqual([1, 2, 3], [1, 2, 3]));
 console.log(helpers_1.count([1, 1, 1], 1));
-console.log(ADD.add_8()[0]);
+console.log(ADD.add_10()[0]);
+// console.log(SUB.SUB1());
+/*
+require.config({
+  paths: {
+    'lodash': 'node_modules/lodash/lodash'
+  },
+  shim: {
+    'lodash': {
+      exports: '_'
+    }
+  }
+});
+
+require(['helpers', 'addition']), function(help, add) {
+  console.log(help.count([1,1,1], 1));
+}
+*/ 

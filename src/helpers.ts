@@ -40,11 +40,21 @@ export const commUnique = (variant: number[], variants: number[][]) => {
   }
 }
 
+export const myFind = (arr, value) => {
+  return _.findIndex(arr, el => _.isEqual(el, value));
+}
+
 export const pullFirst = (arr: any[], value) => {
-  let index = _.findIndex(arr, el => _.isEqual(el, value));
-  arr.splice(index, 1);
+  arr.splice(myFind(arr, value), 1);
 }
 
 export const intDiv = (dividend: number, divisor: number) => {
   return _.floor(dividend / divisor);
+}
+
+export const nArrComp = (arr: number[], fn: Function) => {
+  return _.reduce(arr, (acc, el) => {
+    acc.push(fn(el));
+    return acc;
+  }, [] as number[]);
 }

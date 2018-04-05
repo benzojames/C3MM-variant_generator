@@ -297,9 +297,126 @@ export const add_9 = () => {
       variants.push(variant);
     }
   }
+
+  let variantsCopy = variants.slice();
+  variants = _.shuffle(variants);
+  while (variants.length !== 10) {
+    // last should be same type as first
+    variant = add_9Types(intDiv(_.findIndex(variantsCopy, vari => _.isEqual(vari, variants[0])), 3) + 1);
+    possiblyComm = commUnique(variant, variants);
+    if (possiblyComm && _.inRange(variant[2], 200, 1000)) {
+      variants.push(variant);
+    }
+  }
+  return [variants, "ABC"]
 }
 
-export const add_10 = () => {}
+export const add_10 = () => {
+  let variants: number[][] = [];
+  let onceHundred = 2;
+  let hCrossover = 2;
+  let tCrossover = 2;
+  let bothCrossover = 3;
+  let hunMult1, tenMult1, hunMult2, tenMult2;
+  let addend1, addend2, sum;
+  let possiblyComm;
+
+  while (onceHundred) {
+    hunMult1 = _.random(2, 9);
+    tenMult1 = _.random(2, 9);
+    hunMult2 = 0;
+    tenMult2 = _.random(11 - tenMult1, 9);
+    addend1 = 100 * hunMult1 + 10 * tenMult1;
+    addend2 = 100 * hunMult2 + 10 * tenMult2;
+    sum = addend1 + addend2;
+
+    possiblyComm = commUnique([addend1, addend2, sum], variants);
+    if (possiblyComm && _.inRange(300, 2000)) {
+      variants.push(possiblyComm);
+      onceHundred--;
+    }
+  }
+  while (bothCrossover) {
+    hunMult1 = _.random(2, 9);
+    tenMult1 = _.random(2, 9);
+    hunMult2 = _.random(11 - hunMult1, 9);
+    tenMult2 = _.random(11 - tenMult1, 9);
+    addend1 = 100 * hunMult1 + 10 * tenMult1;
+    addend2 = 100 * hunMult2 + 10 * tenMult2;
+    sum = addend1 + addend2;
+
+    possiblyComm = commUnique([addend1, addend2, sum], variants);
+    if (possiblyComm && _.inRange(sum, 300, 2000)) {
+      variants.push(possiblyComm);
+      bothCrossover--;
+    }
+  }
+  while (hCrossover) {
+    hunMult1 = _.random(2, 9);
+    tenMult1 = _.random(1, 8);
+    hunMult2 = _.random(11 - hunMult1, 9);
+    tenMult2 = _.random(1, 9 - tenMult1);
+    addend1 = 100 * hunMult1 + 10 * tenMult1;
+    addend2 = 100 * hunMult2 + 10 * tenMult2;
+    sum = addend1 + addend2;
+
+    possiblyComm = commUnique([addend1, addend2, sum], variants);
+    if (possiblyComm && _.inRange(sum, 300, 2000)) {
+      variants.push(possiblyComm);
+      hCrossover--;
+    }
+  }
+  while (tCrossover) {
+    hunMult1 = _.random(1, 8);
+    tenMult1 = _.random(2, 9);
+    hunMult2 = _.random(1, 9 - hunMult1);
+    tenMult2 = _.random(11 - tenMult1, 9);
+    addend1 = 100 * hunMult1 + 10 * tenMult1;
+    addend2 = 100 * hunMult2 + 10 * tenMult2;
+    sum = addend1 + addend2;
+
+    possiblyComm = commUnique([addend1, addend2, sum], variants);
+    if (possiblyComm && _.inRange(sum, 300, 1000)) {
+      variants.push([addend1, addend2, sum]);
+      tCrossover--;
+    }
+  }
+  while (variants.length !== 10) {
+    if (choice([true, false])) {
+      // 10 crossover
+      hunMult1 = _.random(1, 8);
+      tenMult1 = _.random(2, 9);
+      hunMult2 = _.random(1, 9 - hunMult1);
+      tenMult2 = _.random(11 - tenMult1, 9);
+      addend1 = 100 * hunMult1 + 10 * tenMult1;
+      addend2 = 100 * hunMult2 + 10 * tenMult2;
+      sum = addend1 + addend2;
+
+      possiblyComm = commUnique([addend1, addend2, sum], variants);
+      if (possiblyComm && _.inRange(sum, 200, 1000)) {
+          variants.push(possiblyComm);
+      }
+    }
+    else {
+        // 100 crossover
+        hunMult1 = _.random(2, 9);
+        tenMult1 = _.random(1, 8);
+        hunMult2 = _.random(11 - hunMult1, 9);
+        tenMult2 = _.random(1, 9 - tenMult1);
+        addend1 = 100 * hunMult1 + 10 * tenMult1;
+        addend2 = 100 * hunMult2 + 10 * tenMult2;
+        sum = addend1 + addend2;
+
+        possiblyComm = commUnique([addend1, addend2, sum], variants);
+        if (possiblyComm && _.inRange(sum, 200, 2000)) {
+            variants.push(possiblyComm);
+        }
+    }
+  }
+ 
+  variants = _.shuffle(variants);
+  return [variants, "ABC"];
+}
 
 
 const add_1Checks = () => {
