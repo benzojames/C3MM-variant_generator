@@ -1,6 +1,7 @@
 import * as _ from "lodash";
 import { repeatTo10, choice, commUnique, pullFirst, intDiv, commVariant } from "./helpers";
 
+/*
 class Variant {
   left: number;
   right: number;
@@ -34,6 +35,7 @@ class Variants {
     
   }
 }
+*/
 
 export const add_1 = () => {
   const augends = _.range(10);
