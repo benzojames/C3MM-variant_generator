@@ -3,12 +3,12 @@ exports.__esModule = true;
 var _ = require("lodash");
 var helpers_1 = require("./helpers");
 var ADD = require("./addition");
-// import * as SUB from "./subtraction";
+var SUB = require("./subtraction");
 // import * as SUB from "./subtraction";
 console.log("Arrays should be equal: ", _.isEqual([1, 2, 3], [1, 2, 3]));
 console.log(helpers_1.count([1, 1, 1], 1));
 console.log(ADD.add_10()[0]);
-// console.log(SUB.SUB1());
+console.log(SUB.SUB1());
 /*
 require.config({
   paths: {

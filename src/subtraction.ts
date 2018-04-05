@@ -21,7 +21,7 @@ export const SUB1 = () => {
       let variant = [minu, subr, difference];
 
       // avoid repitition
-      if (!myFind(variants, variant)) {
+      if (myFind(variants, variant) < 0) {
         variants.push([minu, subr, difference]);
         break;
       }

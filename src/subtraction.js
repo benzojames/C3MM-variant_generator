@@ -18,7 +18,7 @@ exports.SUB1 = function () {
             }
             var variant = [minu, subr, difference];
             // avoid repitition
-            if (!helpers_1.myFind(variants, variant)) {
+            if (helpers_1.myFind(variants, variant) < 0) {
                 variants.push([minu, subr, difference]);
                 break;
             }
