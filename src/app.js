@@ -427,31 +427,31 @@ define("addition", ["require", "exports", "lodash", "helpers"], function (requir
         return null;
     };
 });
-define("subtraction", ["require", "exports", "lodash", "helpers"], function (require, exports, _, helpers_2) {
+define("subtraction", ["require", "exports", "lodash"], function (require, exports, _) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.SUB1 = () => {
         let variants = [];
         let CZeros = 2;
-        _.forEach(_.range(10), subr => {
-            while (true) {
-                let minu = _.random(subr + (CZeros ? 0 : 1), 10);
-                // avoid [0, 0, 0]
-                if (minu === 0) {
-                    continue;
-                }
-                let difference = minu - subr;
-                if (difference === 0) {
-                    CZeros--;
-                }
-                let variant = [minu, subr, difference];
-                // avoid repitition
-                if (helpers_2.myFind(variants, variant) < 0) {
-                    variants.push([minu, subr, difference]);
-                    break;
-                }
-            }
-        });
+        //   _.forEach(_.range(10), subr => {
+        //     while (true) {
+        //       let minu = _.random(subr + (CZeros ? 0 : 1), 10);
+        //       // avoid [0, 0, 0]
+        //       if (minu === 0) {
+        //         continue;
+        //       }
+        //       let difference = minu - subr;
+        //       if (difference === 0) {
+        //         CZeros--;
+        //       }
+        //       let variant = [minu, subr, difference];
+        //       // avoid repitition
+        //       if (myFind(variants, variant) < 0) {
+        //         variants.push([minu, subr, difference]);
+        //         break;
+        //       }
+        //     }
+        //   });
         variants = _.shuffle(variants);
         // let b0, c0 = 0, 0;
         // for _, b, c in variants:
@@ -828,12 +828,12 @@ export const SUBER(lvl) {
     lst = [SUB1, SUB2, SUB3, SUB4, SUB5, SUB6, SUB7, SUB8, SUB9, SUB10]
     return [lst[lvl - 1]()
     */ 
-define("index", ["require", "exports", "lodash", "helpers", "addition", "subtraction"], function (require, exports, _, helpers_3, ADD, SUB) {
+define("index", ["require", "exports", "lodash", "helpers", "addition", "subtraction"], function (require, exports, _, helpers_2, ADD, SUB) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     // import * as SUB from "./subtraction";
     console.log("Arrays should be equal: ", _.isEqual([1, 2, 3], [1, 2, 3]));
-    console.log(helpers_3.count([1, 1, 1], 1));
+    console.log(helpers_2.count([1, 1, 1], 1));
     console.log(ADD.add_10()[0]);
     console.log(SUB.SUB1());
 });

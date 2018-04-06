@@ -5,28 +5,28 @@ export const SUB1 = () => {
   let variants: number[][] = [];
 
   let CZeros = 2;
-  _.forEach(_.range(10), subr => {
-    while (true) {
-      let minu = _.random(subr + (CZeros ? 0 : 1), 10);
+  //   _.forEach(_.range(10), subr => {
+  //     while (true) {
+  //       let minu = _.random(subr + (CZeros ? 0 : 1), 10);
 
-      // avoid [0, 0, 0]
-      if (minu === 0) {
-        continue;
-      }
+  //       // avoid [0, 0, 0]
+  //       if (minu === 0) {
+  //         continue;
+  //       }
 
-      let difference = minu - subr;
-      if (difference === 0) {
-        CZeros--;
-      }
-      let variant = [minu, subr, difference];
+  //       let difference = minu - subr;
+  //       if (difference === 0) {
+  //         CZeros--;
+  //       }
+  //       let variant = [minu, subr, difference];
 
-      // avoid repitition
-      if (myFind(variants, variant) < 0) {
-        variants.push([minu, subr, difference]);
-        break;
-      }
-    }
-  });
+  //       // avoid repitition
+  //       if (myFind(variants, variant) < 0) {
+  //         variants.push([minu, subr, difference]);
+  //         break;
+  //       }
+  //     }
+  //   });
 
   variants = _.shuffle(variants);
   // let b0, c0 = 0, 0;

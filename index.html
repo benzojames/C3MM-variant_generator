@@ -4,37 +4,14 @@
     <title>My Sample Project</title>
     <!-- data-main attribute tells require.js to load
           scripts/main.js after require.js loads. -->
-    <!-- <script data-main="src/index" src="node_modules/requirejs/require.js"></script> -->
-    <!-- <script src="node_modules/requirejs/require.js"></script> -->
-    <script src="./node_modules/systemjs/dist/system.js"></script>
+    <script data-main="src/index" src="node_modules/requirejs/require.js"></script>
   </head>
   <body>
     <h1>My Sample Project</h1>
     <script>
-      // require.config({
-      SystemJS.config({
-        paths: {
-          'npm:': 'node_modules/',
-        },
-        map: {
-          'lodash': 'npm:lodash/lodash.js',
-        },
-        baseUrl: '/',
-        packages: {
-          '/': {
-            defaultExtension: 'js'
-          },
-        }
-      });
-      // require ( ["src/helpers"], function(help) {
-
-      // });
-      SystemJS.import('./src/index');
-    </script>
-    <!-- <script>
       require.config({
         paths: {
-          'lodash': 'node_modules/lodash/lodash'
+          'lodash': '../node_modules/lodash/lodash'
         },
         shim: {
           'lodash': {
@@ -42,6 +19,6 @@
           }
         }
       });
-    </script> -->
+    </script>
   </body>
 </html>
